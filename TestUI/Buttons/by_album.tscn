@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd0yce1amgaex"]
+
+[ext_resource type="PackedScene" path="res://Buttons/CustomBaseButton.tscn" id="1_26531"]
+
+[node name="by_album" instance=ExtResource("1_26531")]

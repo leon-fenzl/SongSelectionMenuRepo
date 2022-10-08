@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dk3ejf4qh6qlt"]
+
+[node name="CustomBaseButton" type="Button"]
+clip_contents = true
+custom_minimum_size = Vector2i(30, 15)
+offset_right = 360.0
+offset_bottom = 60.0
+
+[node name="ButtonName" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0.247059, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 36
+text = "Button Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+uppercase = true

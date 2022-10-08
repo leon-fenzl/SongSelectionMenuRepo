@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=3 uid="uid://bymqk337kcdm5"]
+
+[ext_resource type="Script" path="res://Scripts/SongButtonBehaviour.gd" id="1_8e5ce"]
+
+[node name="CustomBaseSongButton" type="Button"]
+clip_contents = true
+custom_minimum_size = Vector2i(360, 100)
+offset_right = 360.0
+offset_bottom = 60.0
+script = ExtResource("1_8e5ce")
+
+[node name="HBC" type="HBoxContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2i(100, 100)
+layout_mode = 0
+offset_right = 360.0
+offset_bottom = 100.0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="SongName" type="Label" parent="HBC"]
+custom_minimum_size = Vector2i(120, 0)
+layout_mode = 2
+offset_top = 40.0
+offset_right = 120.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0.247059, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 12
+text = "Song -
+"
+vertical_alignment = 1
+clip_text = true
+uppercase = true
+
+[node name="ArtistName" type="Label" parent="HBC"]
+custom_minimum_size = Vector2i(120, 0)
+layout_mode = 2
+offset_left = 120.0
+offset_top = 40.0
+offset_right = 240.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0.247059, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 12
+text = "Artist -"
+vertical_alignment = 1
+clip_text = true
+uppercase = true
+
+[node name="AlbumName" type="Label" parent="HBC"]
+custom_minimum_size = Vector2i(120, 0)
+layout_mode = 2
+offset_left = 240.0
+offset_top = 40.0
+offset_right = 360.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0.247059, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 12
+text = "Album"
+vertical_alignment = 1
+clip_text = true
+uppercase = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="button_down" from="." to="." method="_on_custom_base_song_button_button_down"]
