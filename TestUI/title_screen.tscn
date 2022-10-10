@@ -1,13 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cvkb1x812fw1"]
+[gd_scene load_steps=9 format=3 uid="uid://cvkb1x812fw1"]
 
 [ext_resource type="Script" path="res://Scripts/GManager.gd" id="1_r0itm"]
 [ext_resource type="Texture2D" uid="uid://cm37yu845tegl" path="res://icon.svg" id="1_tcyj8"]
-[ext_resource type="PackedScene" path="res://Buttons/Home.tscn" id="2_ioppx"]
-[ext_resource type="PackedScene" path="res://Buttons/Search.tscn" id="3_yjfik"]
-[ext_resource type="PackedScene" uid="uid://bd0yce1amgaex" path="res://Buttons/by_album.tscn" id="4_8m7sh"]
-[ext_resource type="PackedScene" path="res://Buttons/by_artist.tscn" id="5_ttrgm"]
-[ext_resource type="PackedScene" path="res://Buttons/by_group.tscn" id="6_4n37k"]
-[ext_resource type="PackedScene" path="res://Buttons/by_song.tscn" id="7_tk23s"]
+[ext_resource type="PackedScene" uid="uid://c8gmek3mgc8si" path="res://Buttons/ByAlbum.tscn" id="3_rosr5"]
+[ext_resource type="PackedScene" uid="uid://c4jmioxmtw0cr" path="res://Buttons/HomeButton.tscn" id="3_umrwv"]
+[ext_resource type="PackedScene" uid="uid://bluf7d6txfdjv" path="res://Buttons/Search.tscn" id="3_yjfik"]
+[ext_resource type="PackedScene" uid="uid://6e32qo4fgnru" path="res://Buttons/ByArtist.tscn" id="4_dqugo"]
+[ext_resource type="PackedScene" uid="uid://ub1uep0ml2jv" path="res://Buttons/ByName.tscn" id="5_tx8kl"]
 [ext_resource type="AudioStream" uid="uid://balgpw1n0yn47" path="res://TestSongs/allthat.ogg" id="9_4dx5t"]
 
 [node name="Song Selection Menu" type="Control"]
@@ -17,9 +16,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_r0itm")
 
 [node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -27,17 +29,20 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBC_Top" type="HBoxContainer" parent="Menu"]
+layout_mode = 2
 offset_right = 1920.0
 offset_bottom = 160.0
 
 [node name="TR - Logo" type="TextureRect" parent="Menu/HBC_Top"]
 custom_minimum_size = Vector2i(160, 160)
+layout_mode = 2
 offset_right = 160.0
 offset_bottom = 160.0
 texture = ExtResource("1_tcyj8")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="Menu/HBC_Top"]
+layout_mode = 2
 offset_left = 164.0
 offset_right = 375.0
 offset_bottom = 160.0
@@ -50,26 +55,16 @@ text = "SONGS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Home" parent="Menu/HBC_Top" instance=ExtResource("2_ioppx")]
-custom_minimum_size = Vector2i(90, 15)
-offset_left = 379.0
-offset_right = 469.0
-offset_bottom = 160.0
-
-[node name="Search" parent="Menu/HBC_Top" instance=ExtResource("3_yjfik")]
-custom_minimum_size = Vector2i(90, 15)
-offset_left = 473.0
-offset_right = 563.0
-offset_bottom = 160.0
-
 [node name="VBC - Sorter" type="VBoxContainer" parent="Menu/HBC_Top"]
-offset_left = 567.0
+layout_mode = 2
+offset_left = 379.0
 offset_right = 1920.0
 offset_bottom = 160.0
 size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="Menu/HBC_Top/VBC - Sorter"]
-offset_right = 1353.0
+layout_mode = 2
+offset_right = 1541.0
 offset_bottom = 78.0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -81,54 +76,64 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HBC - Buttons" type="HBoxContainer" parent="Menu/HBC_Top/VBC - Sorter"]
+layout_mode = 2
 offset_top = 82.0
-offset_right = 1353.0
+offset_right = 1541.0
 offset_bottom = 160.0
 size_flags_vertical = 3
 alignment = 1
 
-[node name="by_album" parent="Menu/HBC_Top/VBC - Sorter/HBC - Buttons" instance=ExtResource("4_8m7sh")]
-custom_minimum_size = Vector2i(280, 15)
-offset_left = 110.0
-offset_right = 390.0
+[node name="HomeButton" parent="Menu/HBC_Top/VBC - Sorter/HBC - Buttons" instance=ExtResource("3_rosr5")]
+layout_mode = 2
+offset_right = 305.0
 offset_bottom = 78.0
 
-[node name="by_Artist" parent="Menu/HBC_Top/VBC - Sorter/HBC - Buttons" instance=ExtResource("5_ttrgm")]
-custom_minimum_size = Vector2i(280, 15)
-offset_left = 394.0
-offset_right = 674.0
+[node name="Button_Name" parent="Menu/HBC_Top/VBC - Sorter/HBC - Buttons" instance=ExtResource("5_tx8kl")]
+layout_mode = 2
+offset_left = 309.0
+offset_right = 614.0
 offset_bottom = 78.0
 
-[node name="by_group" parent="Menu/HBC_Top/VBC - Sorter/HBC - Buttons" instance=ExtResource("6_4n37k")]
-custom_minimum_size = Vector2i(280, 15)
-offset_left = 678.0
-offset_right = 958.0
+[node name="Button_Artist" parent="Menu/HBC_Top/VBC - Sorter/HBC - Buttons" instance=ExtResource("4_dqugo")]
+layout_mode = 2
+offset_left = 618.0
+offset_right = 923.0
 offset_bottom = 78.0
 
-[node name="by_song" parent="Menu/HBC_Top/VBC - Sorter/HBC - Buttons" instance=ExtResource("7_tk23s")]
-custom_minimum_size = Vector2i(280, 15)
-offset_left = 962.0
-offset_right = 1242.0
+[node name="Button_Home" parent="Menu/HBC_Top/VBC - Sorter/HBC - Buttons" instance=ExtResource("3_umrwv")]
+layout_mode = 2
+offset_left = 927.0
+offset_right = 1232.0
+offset_bottom = 78.0
+
+[node name="Button_Search" parent="Menu/HBC_Top/VBC - Sorter/HBC - Buttons" instance=ExtResource("3_yjfik")]
+layout_mode = 2
+offset_left = 1236.0
+offset_right = 1541.0
 offset_bottom = 78.0
 
 [node name="HBC_Divider" type="HBoxContainer" parent="Menu"]
+layout_mode = 2
 offset_top = 164.0
 offset_right = 1920.0
 offset_bottom = 1080.0
 size_flags_vertical = 3
 
 [node name="VBC_SongInfo" type="VBoxContainer" parent="Menu/HBC_Divider"]
+layout_mode = 2
 offset_right = 958.0
 offset_bottom = 916.0
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="VBC_Sorter" type="VBoxContainer" parent="Menu/HBC_Divider/VBC_SongInfo"]
+layout_mode = 2
 offset_right = 958.0
 offset_bottom = 916.0
 
 [node name="TR_AlbumImg" type="TextureRect" parent="Menu/HBC_Divider/VBC_SongInfo/VBC_Sorter"]
 custom_minimum_size = Vector2i(0, 600)
+layout_mode = 2
 offset_right = 958.0
 offset_bottom = 600.0
 size_flags_vertical = 3
@@ -136,6 +141,7 @@ texture = ExtResource("1_tcyj8")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="Menu/HBC_Divider/VBC_SongInfo/VBC_Sorter"]
+layout_mode = 2
 offset_top = 604.0
 offset_right = 958.0
 offset_bottom = 916.0
@@ -155,12 +161,14 @@ text = "Text
 Test"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Menu/HBC_Divider"]
+layout_mode = 2
 offset_left = 962.0
 offset_right = 1920.0
 offset_bottom = 916.0
 size_flags_horizontal = 3
 
 [node name="VBC_Buttons" type="VBoxContainer" parent="Menu/HBC_Divider/ScrollContainer"]
+layout_mode = 2
 offset_right = 958.0
 size_flags_horizontal = 3
 tooltip_text = "Buttons for the songs"

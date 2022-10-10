@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3]
-
-[ext_resource type="PackedScene" path="res://Buttons/CustomBaseButton.tscn" id="1_y4afl"]
-
-[node name="by_Artist" instance=ExtResource("1_y4afl")]

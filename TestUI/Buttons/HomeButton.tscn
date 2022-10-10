@@ -1,15 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bluf7d6txfdjv"]
+[gd_scene load_steps=2 format=3 uid="uid://c4jmioxmtw0cr"]
 
 [ext_resource type="Script" path="res://Scripts/BaseButtonBehaviour.gd" id="1_p6w0c"]
 
-[node name="Button_Search" type="Button"]
+[node name="Button_Home" type="Button"]
 clip_contents = true
 custom_minimum_size = Vector2i(30, 30)
 offset_right = 30.0
 offset_bottom = 30.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "SEARCH"
+text = "Home"
 script = ExtResource("1_p6w0c")
 
 [connection signal="mouse_entered" from="." to="." method="_on_custom_base_button_mouse_entered"]
