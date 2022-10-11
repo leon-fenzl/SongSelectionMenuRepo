@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bluf7d6txfdjv"]
+[gd_scene load_steps=2 format=3 uid="uid://b4txlysbfkkhx"]
 
 [ext_resource type="Script" path="res://Scripts/ButtonsBehaviours/SearchBehaviour.gd" id="1_s2cgq"]
 

@@ -26,7 +26,7 @@ func _on_button_name_mouse_exited():
 	$Button_Name.custom_minimum_size = Vector2(30.0,custom_minimum_size.y)
 
 
-func _on_button_search_mouse_entered():
-	$Button_Search.custom_minimum_size = Vector2(380.0,custom_minimum_size.y)
-func _on_button_search_mouse_exited():
-	$Button_Search.custom_minimum_size = Vector2(30.0,custom_minimum_size.y)
+func _on_search_bar_mouse_entered():
+	$SearchBar.custom_minimum_size = Vector2(380.0,custom_minimum_size.y)
+func _on_search_bar_mouse_exited():
+	$SearchBar.custom_minimum_size = Vector2(30.0,custom_minimum_size.y)

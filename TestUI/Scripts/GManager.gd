@@ -3,7 +3,7 @@ extends Control
 @onready var songSArray = []
 @onready var buttonObject ="res://Buttons/SongButton.tscn"
 @onready var buttonsArray = []
-@onready var searchBttRef = $Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader/Button_Search
+@onready var searchBttRef = $Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader/SearchBar
 func _ready():
 	CreateSongsArray(songsFolderPath)
 	SpawnButtons(songSArray)
