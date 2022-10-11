@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvkb1x812fw1"]
+[gd_scene load_steps=10 format=3 uid="uid://btlm1op6u5758"]
 
 [ext_resource type="Script" path="res://Scripts/GManager.gd" id="1_r0itm"]
 [ext_resource type="Texture2D" uid="uid://cm37yu845tegl" path="res://icon.svg" id="1_tcyj8"]
+[ext_resource type="Script" path="res://Scripts/ButtonsHeaderBehaviours.gd" id="3_37bfi"]
 [ext_resource type="PackedScene" uid="uid://c8gmek3mgc8si" path="res://Buttons/ByAlbum.tscn" id="3_rosr5"]
 [ext_resource type="PackedScene" uid="uid://c4jmioxmtw0cr" path="res://Buttons/HomeButton.tscn" id="3_umrwv"]
 [ext_resource type="PackedScene" uid="uid://bluf7d6txfdjv" path="res://Buttons/Search.tscn" id="3_yjfik"]
@@ -33,7 +34,7 @@ layout_mode = 2
 offset_right = 1920.0
 offset_bottom = 160.0
 
-[node name="TR - Logo" type="TextureRect" parent="Menu/HBC_Top"]
+[node name="TR_Logo" type="TextureRect" parent="Menu/HBC_Top"]
 custom_minimum_size = Vector2i(160, 160)
 layout_mode = 2
 offset_right = 160.0
@@ -55,17 +56,17 @@ text = "SONGS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBC - Sorter" type="VBoxContainer" parent="Menu/HBC_Top"]
+[node name="VBC_Sorter" type="VBoxContainer" parent="Menu/HBC_Top"]
 layout_mode = 2
 offset_left = 379.0
 offset_right = 1920.0
 offset_bottom = 160.0
 size_flags_horizontal = 3
 
-[node name="Label2" type="Label" parent="Menu/HBC_Top/VBC - Sorter"]
+[node name="Label2" type="Label" parent="Menu/HBC_Top/VBC_Sorter"]
 layout_mode = 2
 offset_right = 1541.0
-offset_bottom = 78.0
+offset_bottom = 125.0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0.32549, 0.827451, 1)
@@ -75,42 +76,59 @@ text = "Sort by:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBC - Buttons" type="HBoxContainer" parent="Menu/HBC_Top/VBC - Sorter"]
+[node name="HBC_ButtonsHeader" type="HBoxContainer" parent="Menu/HBC_Top/VBC_Sorter"]
 layout_mode = 2
-offset_top = 82.0
+offset_top = 129.0
 offset_right = 1541.0
 offset_bottom = 160.0
-size_flags_vertical = 3
+size_flags_vertical = 0
 alignment = 1
+script = ExtResource("3_37bfi")
 
-[node name="HomeButton" parent="Menu/HBC_Top/VBC - Sorter/HBC - Buttons" instance=ExtResource("3_rosr5")]
+[node name="Button_Album" parent="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader" instance=ExtResource("3_rosr5")]
 layout_mode = 2
-offset_right = 305.0
-offset_bottom = 78.0
+offset_right = 290.0
+offset_bottom = 31.0
+size_flags_vertical = 2
+icon_alignment = 1
 
-[node name="Button_Name" parent="Menu/HBC_Top/VBC - Sorter/HBC - Buttons" instance=ExtResource("5_tx8kl")]
+[node name="Button_Artist" parent="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader" instance=ExtResource("4_dqugo")]
 layout_mode = 2
-offset_left = 309.0
-offset_right = 614.0
-offset_bottom = 78.0
+offset_left = 294.0
+offset_right = 585.0
+offset_bottom = 31.0
+size_flags_vertical = 2
+icon_alignment = 1
 
-[node name="Button_Artist" parent="Menu/HBC_Top/VBC - Sorter/HBC - Buttons" instance=ExtResource("4_dqugo")]
+[node name="Button_Name" parent="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader" instance=ExtResource("5_tx8kl")]
 layout_mode = 2
-offset_left = 618.0
-offset_right = 923.0
-offset_bottom = 78.0
+offset_left = 589.0
+offset_right = 880.0
+offset_bottom = 31.0
+size_flags_vertical = 2
+icon_alignment = 1
 
-[node name="Button_Home" parent="Menu/HBC_Top/VBC - Sorter/HBC - Buttons" instance=ExtResource("3_umrwv")]
+[node name="Button_Home" parent="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader" instance=ExtResource("3_umrwv")]
 layout_mode = 2
-offset_left = 927.0
-offset_right = 1232.0
-offset_bottom = 78.0
+offset_left = 884.0
+offset_right = 1175.0
+offset_bottom = 31.0
+size_flags_vertical = 2
+icon_alignment = 1
 
-[node name="Button_Search" parent="Menu/HBC_Top/VBC - Sorter/HBC - Buttons" instance=ExtResource("3_yjfik")]
+[node name="Button_Search" parent="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader" instance=ExtResource("3_yjfik")]
 layout_mode = 2
-offset_left = 1236.0
-offset_right = 1541.0
-offset_bottom = 78.0
+offset_left = 1179.0
+offset_right = 1469.0
+offset_bottom = 31.0
+size_flags_vertical = 2
+icon_alignment = 1
+
+[node name="SearchBar" type="LineEdit" parent="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader"]
+layout_mode = 2
+offset_left = 1473.0
+offset_right = 1540.0
+offset_bottom = 31.0
 
 [node name="HBC_Divider" type="HBoxContainer" parent="Menu"]
 layout_mode = 2
@@ -178,3 +196,14 @@ alignment = 1
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_4dx5t")
 volume_db = -16.774
+
+[connection signal="mouse_entered" from="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader/Button_Album" to="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader" method="_on_button_album_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader/Button_Album" to="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader" method="_on_button_album_mouse_exited"]
+[connection signal="mouse_entered" from="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader/Button_Artist" to="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader" method="_on_button_artist_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader/Button_Artist" to="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader" method="_on_button_artist_mouse_exited"]
+[connection signal="mouse_entered" from="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader/Button_Name" to="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader" method="_on_button_name_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader/Button_Name" to="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader" method="_on_button_name_mouse_exited"]
+[connection signal="mouse_entered" from="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader/Button_Home" to="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader" method="_on_button_home_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader/Button_Home" to="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader" method="_on_button_home_mouse_exited"]
+[connection signal="mouse_entered" from="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader/Button_Search" to="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader" method="_on_button_search_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader/Button_Search" to="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader" method="_on_button_search_mouse_exited"]

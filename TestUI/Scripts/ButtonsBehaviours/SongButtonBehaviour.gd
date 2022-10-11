@@ -9,7 +9,6 @@ func _on_custom_base_song_button_button_down():
 	aSPlayer.playing = true
 	aSPlayer.volume_db = -16
 func SetValues():
-	var dir = DirAccess.open(testSongsPath)
 	for i in songArray.size():
 		if i == buttonIndex:
 			currentStream = load(testSongsPath+songArray[buttonIndex])

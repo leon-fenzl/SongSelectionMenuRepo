@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://6e32qo4fgnru"]
-
-[ext_resource type="Script" path="res://Scripts/BaseButtonBehaviour.gd" id="1_p6w0c"]
+[gd_scene format=3 uid="uid://6e32qo4fgnru"]
 
 [node name="Button_Artist" type="Button"]
 clip_contents = true
@@ -10,7 +8,3 @@ offset_bottom = 30.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "ARTIST"
-script = ExtResource("1_p6w0c")
-
-[connection signal="mouse_entered" from="." to="." method="_on_custom_base_button_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_custom_base_button_mouse_exited"]

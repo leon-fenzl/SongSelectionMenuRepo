@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bluf7d6txfdjv"]
 
-[ext_resource type="Script" path="res://Scripts/BaseButtonBehaviour.gd" id="1_p6w0c"]
+[ext_resource type="Script" path="res://Scripts/ButtonsBehaviours/SearchBehaviour.gd" id="1_s2cgq"]
 
 [node name="Button_Search" type="Button"]
 clip_contents = true
@@ -10,7 +10,6 @@ offset_bottom = 30.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "SEARCH"
-script = ExtResource("1_p6w0c")
+script = ExtResource("1_s2cgq")
 
-[connection signal="mouse_entered" from="." to="." method="_on_custom_base_button_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_custom_base_button_mouse_exited"]
+[connection signal="button_down" from="." to="." method="_on_button_search_button_down"]

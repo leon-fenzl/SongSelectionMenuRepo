@@ -3,6 +3,7 @@ extends Control
 @onready var songSArray = []
 @onready var buttonObject ="res://Buttons/SongButton.tscn"
 @onready var buttonsArray = []
+@onready var searchBttRef = $Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader/Button_Search
 func _ready():
 	CreateSongsArray(songsFolderPath)
 	SpawnButtons(songSArray)
@@ -20,9 +21,7 @@ func CreateSongsArray(path):
 		elif !songFile.begins_with(".") and !songFile.ends_with(".import"):
 			songSArray.append(songFile)
 	dir.list_dir_end()
-	print(songSArray)
 	return songSArray
-	
 func SpawnButtons(refArray:Array):
 	var object = load(buttonObject)
 	for index in refArray:
@@ -30,11 +29,11 @@ func SpawnButtons(refArray:Array):
 		buttonsArray.append(bObj)
 		$Menu/HBC_Divider/ScrollContainer/VBC_Buttons.add_child(bObj)
 	return buttonsArray
-	
 func FeedEachButton():
 	var index:int
 	for i in buttonsArray.size():
 		index = i
+		searchBttRef.allButtons.append(buttonsArray[index]) #Feed Search Array
 		var each = buttonsArray[index]
 		each.buttonIndex = index
 		each.songArray = songSArray
