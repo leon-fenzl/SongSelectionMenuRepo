@@ -8,5 +8,3 @@ func FeedTheSearch(a:Array):
 			research.append(allButtons[i].text)
 		else:
 			return
-func _on_search_bar_text_changed(new_text):
-	pass # Replace with function body.
