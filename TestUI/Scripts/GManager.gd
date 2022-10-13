@@ -4,9 +4,10 @@ extends Control
 @onready var buttonObject ="res://Buttons/SongButton.tscn"
 @onready var buttonsArray = []
 @onready var searchMatches = []
+@onready var vbcBttHolder = get_node("Menu/HBC_Divider/ScrollContainer/VBC_Buttons")
 func _ready():
 	CreateSongsArray(songsFolderPath)
-	SpawnButtons(songSArray)
+	SpawnButtons()
 	FeedEachButton()
 	
 func _input(_event):
@@ -23,15 +24,15 @@ func CreateSongsArray(path):
 		elif !songFile.begins_with(".") and !songFile.ends_with(".import"):
 			songSArray.append(songFile)
 	dir.list_dir_end()
-	return songSArray
+#	return songSArray
 
-func SpawnButtons(refArray:Array):
+func SpawnButtons():
 	var object = load(buttonObject)
-	for index in refArray:
+	for i in songSArray:
 		var bObj = object.instantiate()
 		buttonsArray.append(bObj)
-		$Menu/HBC_Divider/ScrollContainer/VBC_Buttons.add_child(bObj)
-	return buttonsArray
+		vbcBttHolder.add_child(bObj)
+#	return buttonsArray
 
 func FeedEachButton():
 	for i in buttonsArray.size():
@@ -51,10 +52,11 @@ func _on_search_bar_text_changed(new_text):
 			i.show()
 		return
 	for i in buttonsArray:
-		if new_text in i.text.to_lower():
+		if(new_text in i.text.to_lower()
+		|| new_text in i.album.text.to_lower()
+		|| new_text in i.artist.text.to_lower()
+		|| new_text in i.group.text.to_lower()):
 			searchMatches.append(i)
-		if i in searchMatches:
-			i.show() 
-		else:
-			i.hide()
+		if i in searchMatches:i.show()
+		else:i.hide()
 	searchMatches.clear()
