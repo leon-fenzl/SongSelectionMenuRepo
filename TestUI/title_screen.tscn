@@ -20,6 +20,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_r0itm")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [node name="Menu" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -164,8 +166,6 @@ size_flags_horizontal = 3
 tooltip_text = "Buttons for the songs"
 theme_override_constants/separation = 10
 alignment = 1
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="mouse_entered" from="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader/Button_Album" to="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader" method="_on_button_album_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader/Button_Album" to="Menu/HBC_Top/VBC_Sorter/HBC_ButtonsHeader" method="_on_button_album_mouse_exited"]
